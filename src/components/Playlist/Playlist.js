@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Playlist.css";
-import { TrackList } from "../TrackList/TrackList";
+import TrackList from "../TrackList/TrackList";
 
 
-export class Playlist extends React.Component {
+class Playlist extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -13,10 +13,11 @@ export class Playlist extends React.Component {
         return (
             <div className="playlist">
                 <input defaultValue={'New Playlist'} />
-                <!-- Add a TrackList component -->
-                <TrackList />
-                <button class="Playlist-save">SAVE TO SPOTIFY</button>
+                <TrackList tracks={this.props.playlistTracks}/>
+                <button className="Playlist-save">SAVE TO SPOTIFY</button>
             </div>
         );
     }
 }
+
+export  default Playlist;

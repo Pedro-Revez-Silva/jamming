@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./Track.css";
 
-export class Track extends React.Component {
+class Track extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -19,11 +19,13 @@ export class Track extends React.Component {
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3>Track Name</h3>
-          <p>Track Artist | track Album</p>
+          <h3>{this.props.track.name}</h3>
+          <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
         {this.renderAction()}
       </div>
     );
   }
 }
+
+export default Track;
