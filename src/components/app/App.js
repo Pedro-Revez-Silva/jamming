@@ -12,44 +12,8 @@ export class App extends React.Component {
     super(props);
     this.state = {
       searchResults: [
-        {
-          id: 1,
-          name: "Track 1",
-          artist: "Artist 1",
-          album: "Album 1",
-        },
-        {
-          id: 2,
-          name: "Track 2",
-          artist: "Artist 2",
-          album: "Album 2",
-        },
-        {
-          id: 3,
-          name: "Track 3",
-          artist: "Artist 3",
-          album: "Album 3",
-        },
       ],
       playlistTracks: [
-        {
-          id: 1,
-          name: "Plisttrack1",
-          artist: "Luis Fonsi",
-          album: "Despacito",
-        },
-        {
-          id: 2,
-          name: "Plisttrack2",
-          artist: "Luis Fonsi",
-          album: "Despacito",
-        },
-        {
-          id: 3,
-          name: "Plisttrack3",
-          artist: "Luis Fonsi",
-          album: "Despacito",
-        },
       ],
       playListName: "Your Playlist",
     };
@@ -67,7 +31,7 @@ export class App extends React.Component {
       return;
     } else {
       this.setState({
-        playlistTracks: this.state.playlistTracks.push(track),
+        playlistTracks: [...tracks, track]
       });
     }
   }
@@ -111,7 +75,7 @@ export class App extends React.Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          <SearchBar onSearch={this.search()} />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults
               searchResults={this.state.searchResults}
